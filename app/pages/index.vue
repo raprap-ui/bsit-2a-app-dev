@@ -5,8 +5,8 @@
     <v-icon size="80" color="primary" class="mt-10">mdi-apple </v-icon>
     
      <v-card-text>
-      <v-text-field variant="outlined" label="Username" prepend-inner-icon="mdi-account" clearable></v-text-field>
-      <v-text-field variant="outlined" flat label="Password" prepend-inner-icon="mdi-lock" type="password" clearable></v-text-field>
+      <v-text-field variant="outlined" label="Username" v-model="username" prepend-inner-icon="mdi-account" clearable></v-text-field>
+      <v-text-field variant="outlined" flat label="Password" v-model="password" prepend-inner-icon="mdi-lock" type="password" clearable></v-text-field>
    
 <v-btn color="primary" @click="login" style="width: 100vh;">Sign </v-btn>
     </v-card-text>
@@ -25,6 +25,15 @@ const username = ref ("");
 const password = ref ("");
 
 function login(){
-alert("login function called")
+  if ( username.value === defaultUsername.value &&
+  password.value === defaultPassword.value)
+  {
+    navigateTo("/dashboard");
+  }
+
+  else {
+    alert("Invalid Username or Password");
+  }
+
 }
 </script>
